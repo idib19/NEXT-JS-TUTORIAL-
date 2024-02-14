@@ -9,16 +9,16 @@ export default function NavBar() {
                     HOME
                 </Link>
             </button>
-
             <button>
-                <Link href="/price">
-                    PRICE
+                <Link href="/prix">
+                    PRIX
                 </Link>
             </button>
             <button>
                 <Link href="/dashboard">
                     DASHBOARD
-                </Link>                </button>
+                </Link>
+            </button>
         </div>
     )
 }
