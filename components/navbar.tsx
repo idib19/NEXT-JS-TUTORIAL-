@@ -11,7 +11,7 @@ export default function NavBar() {
             </button>
             <button>
                 <Link href="/prix">
-                    PRIX
+                    PRODUITS
                 </Link>
             </button>
             <button>
