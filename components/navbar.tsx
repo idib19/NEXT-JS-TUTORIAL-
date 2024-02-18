@@ -10,7 +10,7 @@ export default function NavBar() {
                 </Link>
             </button>
             <button>
-                <Link href="/prix">
+                <Link href="/produits">
                     PRODUITS
                 </Link>
             </button>

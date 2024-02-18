@@ -1,5 +1,11 @@
-import { Produit } from "@/app/(navigation)/prix/page";
+
 import { NextRequest, NextResponse } from "next/server";
+
+
+interface Produit {
+    name: string;
+    price: number;
+}
 
 //local array to simulate data stucture : could be a db 
 const data = [

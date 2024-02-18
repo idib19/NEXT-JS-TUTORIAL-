@@ -1,16 +1,18 @@
 "use client"
-import React, { useState, ChangeEvent, FormEvent } from "react";
+import React, { useState, ChangeEvent, FormEvent } from "react"
 
-export default function ProductForm() {
-    const [formData, setFormData] = useState({
-        name: "",
-        price: ""
-    });
 
+export default function AjoutProduitForm() {
+    // USETSATE pour gerer les champs de formulaires 
+    const [formData, setFormData] = useState({ name: "", price: "" });
+
+    // USESTATE FOR HANDLING UI EVENTS 
     const [formSuccess, setFormSuccess] = useState(false);
     const [formSuccessMessage, setFormSuccessMessage] = useState("");
 
-    // Improved type annotations for event handlers
+    //Improved type annotations for event handlers
+    //This mechanism allows you to dynamically update the component's state based on user 
+    //input, making the form responsive and interactive.
     const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
 
@@ -20,6 +22,7 @@ export default function ProductForm() {
         }));
     };
 
+    // FONCTION FOR FORM SUBMISSION 
     const submitForm = (e: FormEvent) => {
         e.preventDefault();
 
@@ -51,15 +54,18 @@ export default function ProductForm() {
             });
     };
 
+
+
     return (
+
         <div className="max-w-md mx-auto mt-10 bg-white p-8 border border-gray-200 rounded-lg shadow-lg">
-            <h1 className="text-xl font-semibold text-gray-700 mb-6">Add a new product</h1>
+            <h1 className="text-xl font-semibold text-gray-700 mb-6">Ajouter un nouveau Produit </h1>
             {formSuccess ? (
                 <div className="bg-green-100 text-green-800 p-4 rounded-lg">{formSuccessMessage}</div>
             ) : (
                 <form onSubmit={submitForm} className="space-y-4">
                     <div>
-                        <label className="block text-sm font-medium text-gray-700">Name:</label>
+                        <label className="block text-sm font-medium text-gray-700">Nom:</label>
                         <input
                             type="text"
                             name="name"
@@ -71,7 +77,7 @@ export default function ProductForm() {
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-700">Price:</label>
+                        <label className="block text-sm font-medium text-gray-700">Prix:</label>
                         <input
                             type="number"
                             step="0.01"
@@ -90,5 +96,9 @@ export default function ProductForm() {
             )}
         </div>
 
-    );
+
+    )
+
+
+
 }
