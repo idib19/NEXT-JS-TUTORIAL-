@@ -6,11 +6,11 @@ export default function AjoutProduitForm() {
     // USETSATE pour gerer les champs de formulaires 
     const [formData, setFormData] = useState({ name: "", price: "" });
 
-    // USESTATE FOR HANDLING UI EVENTS 
+    // USELESS USESTATE FOR HANDLING UI EVENTS 
     const [formSuccess, setFormSuccess] = useState(false);
     const [formSuccessMessage, setFormSuccessMessage] = useState("");
 
-    //Improved type annotations for event handlers
+    
     //This mechanism allows you to dynamically update the component's state based on user 
     //input, making the form responsive and interactive.
     const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
