@@ -1,5 +1,5 @@
-
 import { NextRequest, NextResponse } from "next/server";
+
 
 
 //local array to simulate data stucture : could be a db 
@@ -40,11 +40,11 @@ export async function POST(req: NextRequest, res: NextResponse) {
 
     let { id, name, price } = body
 
-    id = Math.floor(Math.random() * (20 - 10 + 1)) + 10;
+    id = Math.floor(Math.random() * (20 - 10 + 1)) + 10 // generating a random id 
 
     const newProduct = { id, name, price };
 
-    // Optionally, validate newProduct's structure here
+    // validation
     if (!name || !price) {
         return new NextResponse('Le nom et le prix du produit sont obligatoire', { status: 400 });
     }

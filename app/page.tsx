@@ -1,6 +1,14 @@
 
 
+
 export default function Home() {
+
+  // here we need to check user auth satus 
+
+  // if (authenticated) : -> {give access to the application}
+
+  // if (!authenticated) : -> {redirect to sign-in} 
+
   return (
 
     <div className="flex flex-col justify-center items-center h-screen ">

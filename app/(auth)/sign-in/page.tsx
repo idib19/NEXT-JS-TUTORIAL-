@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { app } from '@/firebase.config';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export default function SignIn() {
     const router = useRouter();
@@ -19,8 +20,8 @@ export default function SignIn() {
                 // Signed in
                 const user = userCredential.user;
                 if (user) {
-                    // Redirect to dashboard if there is a user
-                    router.push('/dashboard');
+                    // Redirect to the entry point if there is a user
+                    router.push('/');
                 }
             } catch (error) {
                 const errorCode = error;
@@ -35,9 +36,16 @@ export default function SignIn() {
         signIn();
     }, [router]); // Add router to the dependency array to avoid re-run
 
+
+    // we nee to add a button for redirection into the sign-up page from the sign-in page 
     return (
         <div>
             <h1>PAGE DE CONNEXION</h1>
+            <h1>PAGE DE COMPTE ?
+                <Link href= "/sign-up">
+                    INSCRIVEZ VOUS MAINTENANT
+                </Link> 
+            </h1>
         </div>
     );
 }
