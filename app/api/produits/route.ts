@@ -52,5 +52,5 @@ export async function POST(req: NextRequest, res: NextResponse) {
     data.push(newProduct); // Add the new product to the data array
 
     console.log(data)
-    return new NextResponse("sucess", { status: 201 }); // Respond with the newly added product
+    return   NextResponse.json(newProduct); // Respond with the newly added product
 }
