@@ -1,18 +1,30 @@
+"use client"
+
 import Link from "next/link";
 import { useState } from "react"
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "@/firebaseConfig";
+import { useRouter } from "next/navigation";
 
 export default function pageInscription() {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-
+    const router = useRouter()
     // fonction => creer un nouveau user 
 
-    function handleSignUp(e: any) {
-
+    async function handleSignUp(e: any) {
+        e.preventDefault();
+        try {
+            await createUserWithEmailAndPassword(auth, email, password);
+            router.push('/'); // Redirect to home page or dashboard after sign up
+        } catch (error) {
+            console.error(error);
+            alert(error);
+        }
     }
-    
+
 
     return (
 
