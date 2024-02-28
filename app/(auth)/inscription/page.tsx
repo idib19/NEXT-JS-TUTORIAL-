@@ -1,35 +1,21 @@
-"use client"
+import Link from "next/link";
+import { useState } from "react"
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { auth } from '@/firebaseConfig';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import Link from 'next/link';
+export default function pageInscription() {
 
-
-export default function SignIn() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const router = useRouter();
 
-    const handleSignUp = async (e: any) => {
-        e.preventDefault();
-        try {
-            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
 
-            const user = userCredential.user
+    // fonction => creer un nouveau user 
 
-            if (user) {
-                router.push('/'); // redirection vers page acceuil
-            }
+    function handleSignUp(e: any) {
 
-        } catch (error) {
-            console.error(error);
-            alert(error);
-        }
-    };
+    }
+    
 
     return (
+
         <div className="min-h-screen flex items-center justify-center  py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-md w-full space-y-8">
                 <div>
@@ -93,5 +79,6 @@ export default function SignIn() {
                 </form>
             </div>
         </div>
+
     )
 }

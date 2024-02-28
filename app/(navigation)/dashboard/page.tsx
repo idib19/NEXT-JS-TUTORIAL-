@@ -1,18 +1,7 @@
-import { auth } from "@/firebaseConfig";
-import { onAuthStateChanged } from "firebase/auth";
-import { redirect } from "next/navigation";
 
-export default async function dashBoard() {
-    onAuthStateChanged(auth, (user) => {
-        if (user) {
-          
-            
-         
-        } else {
-          redirect("/connexion")
-        }
-      });
 
+export default  function dashBoard() {
+    
     return (
         <div>
             <h1>
