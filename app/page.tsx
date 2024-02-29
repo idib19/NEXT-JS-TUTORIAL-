@@ -14,7 +14,6 @@ export default function Home() {
 
   const email = auth.currentUser?.email;
 
-  useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
 
@@ -25,16 +24,12 @@ export default function Home() {
         router.push('/connexion')
       }
     });
-  },[router])
 
 
 
 
-  // here we need to check user auth satus 
 
-  // if (authenticated) : -> {give access to the application}
 
-  // if (!authenticated) : -> {redirect to sign-in} 
 
 
   return (

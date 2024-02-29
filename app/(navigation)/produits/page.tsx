@@ -1,5 +1,10 @@
+"use client"
+
 import { ListProduits } from "@/components/listeProduits";
 import AjoutProduitForm from "@/components/ajoutProduitForm";
+import { auth } from "@/firebaseConfig";
+import { onAuthStateChanged } from "firebase/auth";
+import { useRouter } from "next/navigation";
 
 interface Produit {
   id: number;
@@ -9,6 +14,17 @@ interface Produit {
 
 
 export default async function pagePrix() {
+
+const router = useRouter();
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+     
+    } else {
+      router.push('/connexion')
+    }
+  });
+
 
   const response = await fetch(`http://localhost:3000/api/produits`, {
     method: 'GET',
