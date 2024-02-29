@@ -17,8 +17,13 @@ export default function pageInscription() {
     async function handleSignUp(e: any) {
         e.preventDefault();
         try {
-            await createUserWithEmailAndPassword(auth, email, password);
-            router.push('/'); // Redirect to home page or dashboard after sign up
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user
+
+            if (user) {
+                router.push('/'); // Redirect to home page or dashboard after sign up
+            }
+            
         } catch (error) {
             console.error(error);
             alert(error);
