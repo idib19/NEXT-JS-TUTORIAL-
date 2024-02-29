@@ -1,4 +1,7 @@
-export default function dashBoard() {
+
+
+export default  function dashBoard() {
+    
     return (
         <div>
             <h1>

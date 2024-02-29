@@ -19,6 +19,11 @@ export default function NavBar() {
                     DASHBOARD
                 </Link>
             </button>
+            <button>
+                <Link href="/inscription">
+                    INSCRIPTION
+                </Link>
+            </button>
         </div>
     )
 }
