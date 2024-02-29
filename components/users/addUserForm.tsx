@@ -2,15 +2,15 @@
 import React, { useState, ChangeEvent, FormEvent } from "react"
 
 
-export default function AjoutProduitForm() {
+export default function AjoutUserForm() {
     // USETSATE pour gerer les champs de formulaires 
-    const [formData, setFormData] = useState({ name: "", price: "" });
+    const [formData, setFormData] = useState({ first: "", last: "", born: "" });
 
     // USELESS USESTATE FOR HANDLING UI EVENTS 
     const [formSuccess, setFormSuccess] = useState(false);
     const [formSuccessMessage, setFormSuccessMessage] = useState("");
 
-    
+
     //This mechanism allows you to dynamically update the component's state based on user 
     //input, making the form responsive and interactive.
     const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
@@ -26,7 +26,7 @@ export default function AjoutProduitForm() {
     const submitForm = (e: FormEvent) => {
         e.preventDefault();
 
-        const formURL = "http://localhost:3000/api/produits";
+        const formURL = "http://localhost:3000/api/users";
         const data = JSON.stringify(formData);
 
         fetch(formURL, {
@@ -43,7 +43,7 @@ export default function AjoutProduitForm() {
                 return response.json();
             })
             .then(() => {
-                setFormData({ name: "", price: "" }); // Reset form data
+                setFormData({ first: "", last: "", born: "" }); // Reset form data
                 setFormSuccess(true);
                 setFormSuccessMessage("Product added successfully!");
                 // Optionally, manage formSuccessMessage based on responseData
@@ -65,25 +65,37 @@ export default function AjoutProduitForm() {
             ) : (
                 <form onSubmit={submitForm} className="space-y-4">
                     <div>
-                        <label className="block text-sm font-medium text-gray-700">Nom:</label>
+                        <label className="block text-sm font-medium text-gray-700">Prenom:</label>
                         <input
                             type="text"
-                            name="name"
+                            name="first"
                             onChange={handleInput}
-                            value={formData.name}
+                            value={formData.first}
                             required
                             className="text-black mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                         />
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-700">Prix:</label>
+                        <label className="block text-sm font-medium text-gray-700">Nom:</label>
+                        <input
+                            type="text"
+                            name="last"
+                            onChange={handleInput}
+                            value={formData.last}
+                            required
+                            className="text-black mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                        />
+                    </div>
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700">Birth Year:</label>
                         <input
                             type="number"
-                            step="0.01"
-                            name="price"
+                            name="born"
                             onChange={handleInput}
-                            value={formData.price}
+                            value={formData.born} // Assuming you store the year in formData.birthYear
+                            min="1900" // Example: Minimum year set to 1900
+                            max={new Date().getFullYear()} // Example: Maximum year set to the current year
                             required
                             className="text-black mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                         />

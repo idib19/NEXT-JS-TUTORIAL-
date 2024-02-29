@@ -5,7 +5,9 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
+
 export default function Home() {
+
 
   const [isLogin, setLoginState] = useState(false);
   const router = useRouter()
@@ -27,6 +29,12 @@ export default function Home() {
 
 
 
+
+  // here we need to check user auth satus 
+
+  // if (authenticated) : -> {give access to the application}
+
+  // if (!authenticated) : -> {redirect to sign-in} 
 
 
   return (
