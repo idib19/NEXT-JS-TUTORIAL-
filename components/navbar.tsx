@@ -24,6 +24,11 @@ export default function NavBar() {
                     INSCRIPTION
                 </Link>
             </button>
+            <button>
+                <Link href="/users">
+                    UTILISATEURS
+                </Link>
+            </button>
         </div>
     )
 }

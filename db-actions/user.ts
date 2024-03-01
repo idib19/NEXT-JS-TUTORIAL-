@@ -1,7 +1,7 @@
 import { collection, addDoc, getDocs } from "firebase/firestore";
-import { db } from "@/firebase.config";
+import { db } from "@/firebaseConfig";
 
-
+// FONCTION D'ECRITURE FIREBASE 
 export async function addUser(first: string, last: string, born: number) {
   try {
     const docRef = await addDoc(collection(db, "users"), {
@@ -13,17 +13,18 @@ export async function addUser(first: string, last: string, born: number) {
 
     return {docRef}
 
-  } catch (e) {
-    console.error("Error adding document: ", e);
+  } catch (error) {
+    console.error("Error adding document: ", error);
   }
 }
 
-
+// FONCTION DE LECTURE FIREBASE 
 export async function getUser (){
   try {
     const snapShot = await getDocs(collection(db, "users"));
 
     const userInfo = snapShot.docs
+
     return userInfo
 
     

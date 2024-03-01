@@ -22,7 +22,7 @@ export default function AjoutUserForm() {
         }));
     };
 
-    // FONCTION FOR FORM SUBMISSION 
+    // SOUMISSION DU FORMULAIRE 
     const submitForm = (e: FormEvent) => {
         e.preventDefault();
 

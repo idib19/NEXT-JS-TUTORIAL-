@@ -1,6 +1,7 @@
 import AjoutUserForm from "@/components/users/addUserForm";
 import { ListUsers } from "@/components/users/listeUsers";
 
+// INTERFACE TYPESCRIPT 
 interface User {
     first: string;
     last: string;
@@ -10,6 +11,7 @@ interface User {
 
 export default async function pageUsers() {
 
+    // Requette GET sur notre endpoint
     const response = await fetch(`http://localhost:3000/api/users`, {
         method: 'GET',
         headers: {
@@ -19,8 +21,10 @@ export default async function pageUsers() {
         }
     });
 
+    //recuperation des donnnees 
     const data = await response.json();
 
+    // Transformation des donnees 
     const donnee: User[] = data.map((item: User) => ({
         first: item.first,
         last: item.last,

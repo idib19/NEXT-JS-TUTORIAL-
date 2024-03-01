@@ -1,17 +1,17 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-
+//fonction db 
+import { getFirestore } from "firebase/firestore";
 
 // Configuration Firebase pour notre app 
 const firebaseConfig = {
-  apiKey: "AIzaSyD1vPxn00G6r05bv5-K2_hCkmje8OPXi20",
-  authDomain: "tutoriel-next-js.firebaseapp.com",
-  projectId: "tutoriel-next-js",
-  storageBucket: "tutoriel-next-js.appspot.com",
-  messagingSenderId: "1054249729022",
-  appId: "1:1054249729022:web:2deec4ceb6a59e6fee5eaf",
-  measurementId: "G-9NL8TDJLV2"
+  apiKey: "AIzaSyAf1SVDgDnVU2FujlL_BgKHiaj07NC0LGw",
+  authDomain: "tuto-web-58107.firebaseapp.com",
+  projectId: "tuto-web-58107",
+  storageBucket: "tuto-web-58107.appspot.com",
+  messagingSenderId: "1094975186046",
+  appId: "1:1094975186046:web:96bca8c6acd0c8115d242f"
 };
 
 // Initialize Firebase
@@ -19,3 +19,4 @@ const app = initializeApp(firebaseConfig);
 
 // initialise l'instance d'authentification 
 export const auth = getAuth(app);
+export const db = getFirestore(app);
